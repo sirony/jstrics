@@ -43,8 +43,18 @@ function lengthLimit(el, length){
 *
 */
 $(document).on("input", '.not_negative', function(){
-    let value = $(this).val();
+    let el = $(this);
+
+    let value = el.val();
     if (!$.isNumeric(value) || parseFloat(value) < 0 ) {
-        $(this).val('');
+        el.val('');
+    }
+
+    // Check have any length limit for the input field
+    let strLen = value.length;
+        length = parseFloat(el.attr("data-length"));
+    if(strLen > length){
+        let tiledStr = str.substr(0, length - 1);
+        $(el).val(tiledStr);
     }
 });
