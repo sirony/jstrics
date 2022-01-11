@@ -36,3 +36,15 @@ function lengthLimit(el, length){
         $(el).val(tiledStr);
     }
 }
+
+/**
+*
+*This code snippet is used for check non negative and non string input
+*
+*/
+$(document).on("input", '.not_negative', function(){
+    let value = $(this).val();
+    if (!$.isNumeric(value) || parseFloat(value) < 0 ) {
+        $(this).val('');
+    }
+});
